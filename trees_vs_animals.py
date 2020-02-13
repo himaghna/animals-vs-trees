@@ -56,8 +56,17 @@ def main():
         """
         plant_pop = plant_animal_pop[0]
         animal_pop = plant_animal_pop[1]
-        d_plant_pop = solar_energy/plant_pop - animal_eating_rate * animal_pop - plant_death_rate * plant_pop
-        d_animal_pop = animal_eating_rate * plant_pop/animal_pop - animal_death_rate * animal_pop
+
+        d_plant_pop = solar_energy/plant_pop \
+            - animal_eating_rate \
+            * animal_pop \
+            - plant_death_rate \
+            * plant_pop
+        d_animal_pop = animal_eating_rate \
+        * plant_pop/animal_pop \
+        - animal_death_rate \
+        * animal_pop
+
         return [d_plant_pop, d_animal_pop]
     t = np.linspace(0, simulation_time, simulation_time * 10000)
     initial_plant_animal_pop = [init_plant_pop, init_animal_pop]
@@ -71,7 +80,8 @@ def main():
     plt.plot(t, animal_ecosystem.population, label='Animals', c='blue')
     plt.xlabel('Simulation Time')
     plt.ylabel('Population')
-    plt.title(f'Initial Plants {init_plant_pop}, Initial Animals {init_animal_pop}')
+    plt.title(f'Initial Plants {init_plant_pop},' \
+        'Initial Animals {init_animal_pop}')
     plt.legend(loc=0)
     plt.show()
 
