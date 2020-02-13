@@ -36,7 +36,7 @@ class Plants:
 
 def main():
     #parameters
-    simulation_time = 10
+    simulation_time = 5
     solar_energy = 10  # total energy to feed plants
     animal_eating_rate = 0.7  # P(animal eating plant)
     animal_death_rate = 0.1 # fraction of animals that die from natural causes
