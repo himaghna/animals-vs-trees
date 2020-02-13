@@ -36,6 +36,7 @@ class Plants:
 
 def main():
     #parameters
+    simulation_time = 10
     solar_energy = 10  # total energy to feed plants
     animal_eating_rate = 0.7  # P(animal eating plant)
     animal_death_rate = 0.1 # fraction of animals that die from natural causes
@@ -58,7 +59,7 @@ def main():
         d_plant_pop = solar_energy/plant_pop - animal_eating_rate * animal_pop - plant_death_rate * plant_pop
         d_animal_pop = animal_eating_rate * plant_pop/animal_pop - animal_death_rate * animal_pop
         return [d_plant_pop, d_animal_pop]
-    t = np.linspace(0, 100, 1000000)
+    t = np.linspace(0, simulation_time, simulation_time * 10000)
     initial_plant_animal_pop = [init_plant_pop, init_animal_pop]
     plant_animal_pop = odeint(population_model, initial_plant_animal_pop, t)
     plant_ecosystem.set_population(plant_animal_pop[:,0])
